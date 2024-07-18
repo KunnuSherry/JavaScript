@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        height: 0;
+      }
+      body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      main {
+        margin-top: 20vw;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        display: flex;
+        
+      }
+      img{
+        visibility: hidden;
+        position: absolute;
+        width: 40vw;
+        height: 20vw;
+        border: 2px solid black;
+        transition: ease-in 1s;
+        /* visibility: visible; */
+      }
+      img.active{
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img class="slide1 active"
+        src="https://images.pexels.com/photos/15804651/pexels-photo-15804651/free-photo-of-people-together-on-motorcycle-on-road-in-mountains.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt=""
+      />
+      <img class="slide2 "
+        src="https://images.pexels.com/photos/26051261/pexels-photo-26051261/free-photo-of-a-small-echidna-is-sitting-on-the-ground.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt=""
+      />
+      <img class="slide3 "
+        src="https://images.pexels.com/photos/26572408/pexels-photo-26572408/free-photo-of-silhouette-of-man-by-the-sea-during-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt=""
+      />
+      <img class="slide4 "
+        src="https://images.pexels.com/photos/15804651/pexels-photo-15804651/free-photo-of-people-together-on-motorcycle-on-road-in-mountains.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt=""
+      />
+    </main>
+    <script>
+        let count = 0
+        let slides = document.querySelectorAll("img")
+        let length = slides.length;
+
+        slides[0].addEventListener('click', () => {
+        console.log("SLide1")
+      });
+
+        function slider(){
+            slides[count].classList.remove('active');
+            count = (count+1)%length;
+            slides[count].classList.add('active');
+        }
+
+        setInterval(slider, 4000)
+    </script>
+  </body>
+</html>
